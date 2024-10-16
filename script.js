@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     const projectGrid = document.getElementById("project-grid");
 
+    // Fetch the JSON file with project data
     fetch('myprojects.json')
         .then(response => response.json())
         .then(data => {
             data.forEach(project => {
+                // Create the HTML for each project dynamically
                 const projectItem = document.createElement("div");
                 projectItem.classList.add("project-item");
 
@@ -15,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <a href="${project.link}" class="project-link">View Project</a>
                 `;
 
+                // Append the project item to the grid
                 projectGrid.appendChild(projectItem);
             });
         })
